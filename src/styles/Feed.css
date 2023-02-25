@@ -38,4 +38,19 @@ width: 100%;
     align-items: flex-start;
     justify-content:space-between;
 }
-
+.tree{
+    display: flex;
+    align-items:flex-end;
+    background-color: white;
+    margin-bottom: 5px;
+    margin-top: 0;
+    
+}
+.treechild{
+display: flex;
+margin-bottom: 24px;
+}
+.like{
+    display: flex;
+    margin-bottom: 24px;
+}

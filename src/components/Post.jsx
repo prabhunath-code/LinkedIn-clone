@@ -8,15 +8,23 @@ import ShareIcon from '@mui/icons-material/Share';
 import SendIcon from '@mui/icons-material/Send';
 import { forwardRef } from 'react'
 import { useSelector } from 'react-redux';
+import { Delete } from '@mui/icons-material';
+import firebase from 'firebase/compat/app';
+import { db } from '../firebase';
 
-const Post =forwardRef( ({ name, description, message }, ref) => {
 
+
+
+const Post =forwardRef( ({ name, description, message,photoUrl }, ref) => {
     const { userValue } = useSelector((state) => state.user);
+    
+  
 
+   
     return (
     <div ref={ref} className='post'>
         <div className="post__header">
-            <Avatar src={userValue?.photoURL}>{name[0]}</Avatar>
+            <Avatar src={photoUrl}>{name[0]}</Avatar>
             <div className="post__info">
                 <h2>{name}</h2>
                 <p>{description}</p>
@@ -26,10 +34,13 @@ const Post =forwardRef( ({ name, description, message }, ref) => {
             <p>{message}</p>
         </div>
         <div className="post__buttons">
-            <FeedInputOption Icon={ThumbUpAltIcon} title="like"color="gray"/>
+        {/* <FeedInputOption Icon={ThumbUpAltIcon} title="like"color="gray"/> */}
             <FeedInputOption Icon={CommentIcon} title="comment"color="gray"/>
             <FeedInputOption Icon={ShareIcon} title="Share"color="gray"/>
             <FeedInputOption Icon={SendIcon} title="Send"color="gray"/>
+             {/* <FeedInputOption Icon={Delete} title="delete" color="gray"/> */}
+             {/* <button className='delete_button' onClick={deletePost}> </button> */}
+                
         </div>
     </div>)
 
